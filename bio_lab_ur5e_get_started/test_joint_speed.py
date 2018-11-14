@@ -20,19 +20,30 @@ def joint_states_callback(data):
     pass
 
 def handle_joy(data):
-    #print(data)
+    print(data)
     # A1  B2 X3 Y4
     if data.buttons[2] == 1:
-        cmd = "speedl([0.2,0,0,0,0,0], 0.2, 5)"
-    elif data.buttons[1] == 1:
         cmd = "speedl([-0.2,0,0,0,0,0], 0.2, 5)"
+        pub.publish(cmd)
+    elif data.buttons[1] == 1:
+        cmd = "speedl([0.2,0,0,0,0,0], 0.2, 5)"
+        pub.publish(cmd)
     elif data.buttons[0] == 1:
         cmd = "speedl([0,0,-0.2,0,0,0], 0.2, 5)"
+        pub.publish(cmd)
     elif data.buttons[3] == 1:
         cmd = "speedl([0,0,0.2,0,0,0], 0.2, 5)"
+        pub.publish(cmd)
+    elif data.buttons[4] == 1:
+        cmd = "speedl([0,-0.2,0,0,0,0], 0.2, 5)"
+        pub.publish(cmd)
+    elif data.buttons[5] == 1:
+        cmd = "speedl([0,0.2,0,0,0,0], 0.2, 5)"
+        pub.publish(cmd)
     else:
         cmd = "stopj(2)"
-    pub.publish(cmd)
+        pub.publish(cmd)
+
     
 
 def main():
