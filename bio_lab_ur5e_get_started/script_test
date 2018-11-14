@@ -1,0 +1,23 @@
+joint order: base -> shoulder -> elbow -> wrist 1 -> wrist 2 -> wrist 3
+
+
+# go home 
+rostopic pub /ur_driver/URScript std_msgs/String "movej([0,-1.57,0,-1.57,0,0],a=30, v=20, t=0, r=0)"
+
+# go work
+rostopic pub /ur_driver/URScript std_msgs/String "movej([-1.509,-1.695,-1.480,-0.849,1.509,0.170],a=20.1, v=16.5, t=0, r=0)"
+
+
+# move to feasible point1 , notice the different of writng pose and joint angles
+rostopic pub /ur_driver/URScript std_msgs/String "movel(p[0.14,-0.5,0.34,0.48,-2.97,1.634],a=0.1, v=0.5, r=0)"
+
+
+# velocity test
+rostopic pub /ur_driver/URScript std_msgs/String "speedj([0.2,0,0,0,0,0], 0.5, 0.5)"
+
+# velocity test2
+rostopic pub /ur_driver/URScript std_msgs/String "speedl([0.5,0,0,0,0,0], 0.5, 1)"
+
+
+
+
